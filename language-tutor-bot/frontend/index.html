@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Language Tutor Bot - Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100">
+  <div class="min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-4xl bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-3">
+      <!-- Left: Info / Scenario -->
+      <div class="p-6 md:col-span-1 border-r border-slate-100 dark:border-slate-700">
+        <h1 class="text-2xl font-bold mb-2">AI Language Tutor</h1>
+        <p class="mb-4 text-sm opacity-80">Practice conversations, get gentle corrections, and learn like a native.</p>
+
+        <div class="mb-4">
+          <label class="block text-xs mb-1">Language</label>
+          <select id="language" class="w-full rounded-md p-2 bg-slate-50 dark:bg-slate-700">
+            <option>French</option>
+            <option>Spanish</option>
+            <option>Nepali</option>
+            <option>English</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-xs mb-1">Scenario</label>
+          <select id="scenario" class="w-full rounded-md p-2 bg-slate-50 dark:bg-slate-700">
+            <option>Casual</option>
+            <option>Travel</option>
+            <option>Job Interview</option>
+            <option>Ordering Food</option>
+          </select>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button id="themeToggle" class="px-3 py-2 rounded-md bg-slate-100 dark:bg-slate-700">Toggle Theme</button>
+          <button id="clearBtn" class="px-3 py-2 rounded-md bg-amber-200">Clear</button>
+        </div>
+
+        <hr class="my-4 border-slate-100 dark:border-slate-700">
+
+        <p class="text-xs opacity-70">Tips</p>
+        <ul class="text-sm list-disc pl-4 opacity-80">
+          <li>Try short sentences first.</li>
+          <li>Use voice input (microphone icon).</li>
+          <li>Choose scenarios to get role-play replies.</li>
+        </ul>
+      </div>
+
+      <!-- Right: Chat -->
+      <div class="p-6 md:col-span-2 flex flex-col">
+        <div class="flex-1 overflow-y-auto mb-4" id="chatWindow">
+          <!-- chat messages injected here -->
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="micBtn" title="Use voice input" class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center">🎤</button>
+          <input id="messageInput" class="flex-1 rounded-full p-3 border border-slate-200 dark:border-slate-700 bg-transparent" placeholder="Type a message..." />
+          <button id="sendBtn" class="px-4 py-2 rounded-full bg-blue-600 text-white">Send</button>
+        </div>
+
+        <div class="mt-3 text-sm opacity-70" id="lastCorrection"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
